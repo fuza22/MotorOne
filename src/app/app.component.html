@@ -1,5 +1,9 @@
-<div class="app-navbar"></div>
+<div  *ngIf="hide" class="app-navbar"></div>
 
-<router-outlet></router-outlet>
+<app-welcome *ngIf="!hide">
+  <a routerLink="/homepage" (click)="hide = !hide">prova</a>
+</app-welcome>
 
-<div class="app-footer"></div>
+<router-outlet *ngIf="hide"></router-outlet>
+
+<div *ngIf="hide" class="app-footer"></div>
