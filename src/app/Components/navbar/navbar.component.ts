@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: '.app-navbar',
@@ -6,5 +7,26 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+
+constructor(
+
+  private authService: AuthService
+
+){}
+
 hide!:boolean;
+isLoggedIn$!: boolean;
+
+ngOnInit(){
+
+  this.authService.isLoggedIn$.subscribe(res => this.isLoggedIn$ = res);
+
+}
+
+logout(){
+
+  this.authService.logout();
+
+}
+
 }

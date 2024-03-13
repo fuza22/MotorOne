@@ -1,1 +1,74 @@
-<p>register works!</p>
+<div class="container">
+  <div *ngIf="!registered">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="py-5 row">
+      <h1 class="h3 mb-3 fw-normal">Registrazione</h1>
+
+      <div class="col-6">
+        <div class="form-floating">
+          <input type="text" class="form-control inputStyle" placeholder="Inserisci il tuo nome" formControlName="name"
+            [ngClass]="{'is-valid': isValid('name'), 'is-invalid': isInvalid('name')}">
+          <span *ngIf="registerForm.controls['name'].dirty"
+            [ngClass]="{ 'valid': isValid('name'), 'invalid': isInvalid('name') }">{{msg.name}}</span>
+          <label>Nome</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <input type="text" class="form-control inputStyle" placeholder="Inserisci il tuo username" formControlName="username"
+            [ngClass]="{'is-valid': isValid('username'), 'is-invalid': isInvalid('username')}">
+          <span *ngIf="registerForm.controls['username'].dirty"
+            [ngClass]="{ 'valid': isValid('username'), 'invalid': isInvalid('username') }">{{msg.username}}</span>
+          <label>Username</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <input [ngClass]="{ 'is-valid': isValid('surname'), 'is-invalid': isInvalid('surname')}" type="text"
+            class="form-control inputStyle" id="floatingSurname" placeholder="Inserisci il tuo cognome" formControlName="surname">
+          <span *ngIf="registerForm.controls['surname'].dirty"
+            [ngClass]="{ 'valid': isValid('surname'), 'invalid': isInvalid('surname') }">{{msg.surname}}</span>
+          <label>Cognome</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-floating">
+          <input [ngClass]="{'is-valid': isValid('email'), 'is-invalid': isInvalid('email')}" type="email"
+            class="form-control inputStyle" id="floatingInput" placeholder="name@example.com" formControlName="email">
+          <label>Indirizzo Email</label>
+          <span *ngIf="registerForm.controls['email'].dirty"
+            [ngClass]="{ 'valid': isValid('email'), 'invalid': isInvalid('email') }">{{msg.email}}</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-floating">
+          <input [ngClass]="{'is-valid': isValid('password'), 'is-invalid': isInvalid('password')}" type="password"
+            class="form-control inputStyle" id="floatingPassword" placeholder="Password" formControlName="password">
+          <label>Password</label>
+          <span *ngIf="registerForm.controls['password'].dirty"
+            [ngClass]="{ 'valid': isValid('password'), 'invalid': isInvalid('password') }">{{msg.password}}</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-floating">
+          <input [ngClass]="{'is-valid': isValid('confirmPassword'), 'is-invalid': isInvalid('confirmPassword')}"
+            type="password" class="form-control inputStyle" id="floatingConfirmPassword" placeholder="conferma password"
+            formControlName="confirmPassword">
+            <label>Conferma Password</label>
+          <span *ngIf="registerForm.controls['confirmPassword'].dirty"
+            [ngClass]="{ 'valid':match, 'invalid':!match}">{{msg.confirmPassword}}</span>
+
+        </div>
+      </div>
+
+
+
+      <button [disabled]="!registerForm.valid" class="  btnReg w-100 py-2" type="submit">Sign in</button>
+    </form>
+  </div>
+  <div *ngIf="registered">
+    <h2 class="fw-bold mb-5">Ciao {{this.registerForm.value['name']}}. La registrazione è avvenuta con successo!</h2>
+    <a type="submit" routerLink="../../auth/login" class="btn btn-primary btn-block btn-login">
+      Vai al Login
+    </a>
+  </div>
+</div>

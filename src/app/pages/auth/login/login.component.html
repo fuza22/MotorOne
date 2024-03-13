@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="logIn()" >
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <input id="username" type="username" class="form-control" formControlName="username" [ngClass]="{'is-Valid': isValid('username'), 'is-Invalid': isInvalid('username')}" placeholder="Username">
+      <label>Username</label>
+      <span *ngIf="loginForm.controls['username'].dirty" [ngClass]="{'valid': isValid('username'), 'invalid': isInvalid('username')}">{{msg.username}}</span>
+    </div>
+    <div class="form-floating">
+      <input id='password' type="password" class="form-control" formControlName="password" [ngClass]="{'is-Valid': isValid('password'), 'is-Invalid': isInvalid('password')}" placeholder="Password">
+      <label >Password</label>
+      <span *ngIf="loginForm.controls['password'].dirty" [ngClass]="{'valid': isValid('password'), 'invalid': isInvalid('password')}">{{msg.password}}</span>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+  </form>
+</div>
