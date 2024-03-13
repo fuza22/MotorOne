@@ -5,7 +5,8 @@ import { WelcomeComponent } from './Pages/homepage/welcome/welcome.component';
 const routes: Routes = [
 { path: '', component: WelcomeComponent},
 { path: 'homepage', loadChildren: () => import('./Pages/homepage/homepage.module').then(m => m.HomepageModule) },
-{ path: 'auth', loadChildren: () => import('./Pages/auth/auth.module').then(m => m.AuthModule) }];
+{ path: 'auth', loadChildren: () => import('./Pages/auth/auth.module').then(m => m.AuthModule) },
+{ path: 'profile', loadChildren: () => import('./Pages/profile/profile.module').then(m => m.ProfileModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

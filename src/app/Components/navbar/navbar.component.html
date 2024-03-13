@@ -2,7 +2,7 @@
 <!-- NOT LOGGED -->
 
 <header *ngIf="!isLoggedIn$" class="d-flex flex-wrap justify-content-center py-3 mb-4">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+  <a routerLink="/homepage" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span class="fs-4">MotorOne</span>
   </a>
 
@@ -19,7 +19,7 @@
 <!-- LOGGED -->
 
 <header *ngIf="isLoggedIn$" class="d-flex flex-wrap justify-content-center py-3 mb-4">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+  <a routerLink="/homepage" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span class="fs-4">MotorOne</span>
   </a>
 
@@ -28,7 +28,7 @@
     <li class="nav-item"><a href="#" class="nav-link">Drivers</a></li>
     <li class="nav-item"><a href="#" class="nav-link">Constructors</a></li>
     <li class="nav-item"><a href="#" class="nav-link">Circuits</a></li>
-    <li class="nav-item"><a routerLink="/user" class="nav-link">Profile</a></li>
+    <li class="nav-item"><a routerLink="/profile" class="nav-link">Profile</a></li>
     <li class="nav-item"><a (click)="logout()" routerLink="/homepage" class="nav-link">Logout</a></li>
   </ul>
 </header>
