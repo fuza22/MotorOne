@@ -3,7 +3,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()" class="py-5 row">
       <h1 class="h3 mb-3 fw-normal">Registrazione</h1>
 
-      <div class="col-6">
+      <div class="col-6 mb-1">
         <div class="form-floating">
           <input type="text" class="form-control inputStyle" placeholder="Inserisci il tuo nome" formControlName="name"
             [ngClass]="{'is-valid': isValid('name'), 'is-invalid': isInvalid('name')}">
@@ -12,16 +12,7 @@
           <label>Nome</label>
         </div>
       </div>
-      <div class="col-6">
-        <div class="form-floating">
-          <input type="text" class="form-control inputStyle" placeholder="Inserisci il tuo username" formControlName="username"
-            [ngClass]="{'is-valid': isValid('username'), 'is-invalid': isInvalid('username')}">
-          <span *ngIf="registerForm.controls['username'].dirty"
-            [ngClass]="{ 'valid': isValid('username'), 'invalid': isInvalid('username') }">{{msg.username}}</span>
-          <label>Username</label>
-        </div>
-      </div>
-      <div class="col-6">
+      <div class="col-6 mb-1">
         <div class="form-floating">
           <input [ngClass]="{ 'is-valid': isValid('surname'), 'is-invalid': isInvalid('surname')}" type="text"
             class="form-control inputStyle" id="floatingSurname" placeholder="Inserisci il tuo cognome" formControlName="surname">
@@ -30,7 +21,16 @@
           <label>Cognome</label>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 mb-1">
+        <div class="form-floating">
+          <input type="text" class="form-control inputStyle" placeholder="Inserisci il tuo username" formControlName="username"
+            [ngClass]="{'is-valid': isValid('username'), 'is-invalid': isInvalid('username')}">
+          <span *ngIf="registerForm.controls['username'].dirty"
+            [ngClass]="{ 'valid': isValid('username'), 'invalid': isInvalid('username') }">{{msg.username}}</span>
+          <label>Username</label>
+        </div>
+      </div>
+      <div class="col-12 mb-1">
         <div class="form-floating">
           <input [ngClass]="{'is-valid': isValid('email'), 'is-invalid': isInvalid('email')}" type="email"
             class="form-control inputStyle" id="floatingInput" placeholder="name@example.com" formControlName="email">
@@ -39,7 +39,7 @@
             [ngClass]="{ 'valid': isValid('email'), 'invalid': isInvalid('email') }">{{msg.email}}</span>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 mb-1">
         <div class="form-floating">
           <input [ngClass]="{'is-valid': isValid('password'), 'is-invalid': isInvalid('password')}" type="password"
             class="form-control inputStyle" id="floatingPassword" placeholder="Password" formControlName="password">
@@ -48,7 +48,7 @@
             [ngClass]="{ 'valid': isValid('password'), 'invalid': isInvalid('password') }">{{msg.password}}</span>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 mb-1">
         <div class="form-floating">
           <input [ngClass]="{'is-valid': isValid('confirmPassword'), 'is-invalid': isInvalid('confirmPassword')}"
             type="password" class="form-control inputStyle" id="floatingConfirmPassword" placeholder="conferma password"

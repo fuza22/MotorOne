@@ -24,8 +24,8 @@ export class RegisterComponent {
     name: this.fb.control(null, [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-Z\s]*$/)]),
     surname: this.fb.control(null, [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-Z\'\s]+$/)]),
     email: this.fb.control(null, [Validators.required, Validators.pattern(/^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/)]),
-    password: this.fb.control(null, [Validators.required, Validators.minLength(8), Validators.maxLength(16), Validators.pattern(/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&()\-_=+{};:,<.>])(?=.[^\s]).{8,}$/)]),
-    confirmPassword: this.fb.control(null, [Validators.required, Validators.pattern(/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&()\-_=+{};:,<.>])(?=.[^\s]).{8,}$/)])
+    password: this.fb.control(null, [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?=.*[^\s]).{8,}$/)]),
+    confirmPassword: this.fb.control(null, [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?=.*[^\s]).{8,}$/)])
 
   });
 
@@ -37,6 +37,7 @@ export class RegisterComponent {
       if (field.errors) {
         if (field.errors['required']) errorMsg = 'Campo vuoto'
         if (field.errors['pattern'] && fieldName === 'email') errorMsg = 'Formato email errato'
+        if (field.errors['pattern'] && fieldName === 'password') errorMsg = 'Formato password non accettato'
         if (field.errors['minlength'] && fieldName === 'password') errorMsg = 'Lunghezza minima password: 8 caratteri'
         if (field.errors['minlength'] && (fieldName === 'name' || fieldName === 'surname' || fieldName === 'username')) errorMsg = 'Lunghezza minima: 2 caratteri'
         if (field.errors['minlength'] && fieldName === 'confirmPassword') errorMsg = 'Lunghezza minima password: 8 caratteri'
