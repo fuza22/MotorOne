@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment.development';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { ILoginData } from '../Models/auth/i-login-data';
+import { IUser } from '../Models/auth/i-user';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +57,7 @@ export class AuthService {
   logout(){
     this.authSubject.next(null);
     localStorage.removeItem('accessData');
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/homepage']);
   }
 
   restorUser(){
@@ -69,4 +70,9 @@ export class AuthService {
     this.autoLogout(accessData.accessToken)
     this.authSubject.next(accessData)
   }
+
+  update(userId: number, userData: IUser): Observable<IUser> {
+    return this.http.put<IUser>(`${this.backendUrl}/user/update/${userId}`, userData)
+  }
+
 }
