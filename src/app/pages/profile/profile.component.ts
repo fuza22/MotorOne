@@ -4,7 +4,7 @@ import { AuthService } from './../../Services/auth.service';
 import { Component } from '@angular/core';
 import { IUser } from '../../Models/auth/i-user';
 import { Router } from '@angular/router';
-import { catchError, of, tap } from 'rxjs';
+import { catchError, of, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -31,6 +31,11 @@ export class ProfileComponent {
   loading: boolean = false;
 
   ngOnInit() {
+    this.authService.getUserById(this.userData.user.id).subscribe(data => {
+
+
+
+    })
     this.myForm = this.formBuilder.group({
       name: [null, Validators.required],
       surname: [null, Validators.required],
@@ -68,13 +73,19 @@ export class ProfileComponent {
 
       this.authService.update(this.userData.user.id, updatedUser)
         .pipe(
+          switchMap(() => this.authService.getUserById(this.userData.user.id)),
           tap(updatedUserData => {
             console.log('User updated successfully:', updatedUserData);
             this.userData = {
               ...this.userData,
               user: updatedUserData
             };
-            this.myForm.reset();
+            console.log('Updated userData:', this.userData);
+            this.myForm.patchValue({
+              name: updatedUserData.name,
+              surname: updatedUserData.surname,
+              email: updatedUserData.email
+            });
             this.router.navigate(['/homepage']);
           }),
           catchError(error => {

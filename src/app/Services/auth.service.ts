@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { ILoginData } from '../Models/auth/i-login-data';
 import { IUser } from '../Models/auth/i-user';
+import { IResponse } from '../Models/auth/i-response';
 
 @Injectable({
   providedIn: 'root'
@@ -71,8 +72,13 @@ export class AuthService {
     this.authSubject.next(accessData)
   }
 
-  update(userId: number, userData: IUser): Observable<IUser> {
-    return this.http.put<IUser>(`${this.backendUrl}/user/update/${userId}`, userData)
+  update(userId: number, userData: IUser): Observable<IResponse> {
+    return this.http.put<IResponse>(`${this.backendUrl}/user/update/${userId}`, userData)
+    .pipe(map(data => this.authSubject.next(data.response)))
+  }
+
+  getUserById(userId: number): Observable<IUser> {
+    return this.http.get<IUser>(`${this.backendUrl}/user/search/${userId}`);
   }
 
 }
