@@ -14,7 +14,7 @@ export class myInterceptor implements HttpInterceptor{
     let user:IAuthData = JSON.parse(stringUser)
     let newReq = req.clone({
       setHeaders:{
-        Authorization: "Bearer " + user.accessToken
+        Authorization: 'Bearer ' + user.accessToken
       }
     })
     return next.handle(newReq);

@@ -23,7 +23,7 @@ export class AuthService {
 
   constructor(private http:HttpClient, private router:Router) {
 
-    this.restorUser()
+    this.restoreUser()
    }
 
   signUp(register:IRegister):Observable<IAuthData>{
@@ -60,7 +60,7 @@ export class AuthService {
     this.router.navigate(['/homepage']);
   }
 
-  restorUser(){
+  restoreUser(){
     const userJson:string|null = localStorage.getItem('accessData');
     if(!userJson) return;
 
