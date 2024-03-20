@@ -1,5 +1,6 @@
 <div class="container rounded bg-white mt-5 mb-5">
   <form [formGroup]="myForm" (ngSubmit)="update()" class="row">
+    <!-- Left column -->
     <div class="col-md-3 border-right">
       <div class="d-flex flex-column align-items-center text-center">
         <img class="rounded-circle mt-5" width="150px"
@@ -12,6 +13,8 @@
         <button class="btn btn-primary profile-button" type="button">Carica un'immagine profilo</button>
       </div>
     </div>
+
+    <!-- Right column -->
     <div class="col-md-5 border-right">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -20,21 +23,35 @@
         <div class="row mt-2">
           <div class="col-md-6">
             <label class="labels">Name</label>
-            <input formControlName="name" type="text" class="form-control" placeholder="first name">
+            <input formControlName="name" type="text" class="form-control" placeholder="First name">
           </div>
           <div class="col-md-6">
             <label class="labels">Surname</label>
-            <input formControlName="surname" type="text" class="form-control" placeholder="surname">
+            <input formControlName="surname" type="text" class="form-control" placeholder="Surname">
           </div>
         </div>
         <div class="row mt-3">
           <div class="col-md-12">
             <label class="labels">Password</label>
-            <input formControlName="password" type="password" class="form-control" placeholder="Enter your password">
+            <div class="input-group">
+              <input formControlName="password" [type]="passwordType" class="form-control" placeholder="Enter your password">
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="togglePasswordVisibility()">
+                  <i class="bi bi-eye-fill" [ngClass]="{'bi-eye': passwordType === 'password', 'bi-eye-fill': passwordType === 'text'}"></i>
+                </span>
+              </div>
+            </div>
           </div>
           <div class="col-md-12">
             <label class="labels">Confirm Password</label>
-            <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm password">
+            <div class="input-group">
+              <input formControlName="confirmPassword" [type]="confirmPasswordType" class="form-control" placeholder="Confirm password">
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="toggleConfirmPasswordVisibility()">
+                  <i class="bi" [ngClass]="{'bi-eye': confirmPasswordType === 'password', 'bi-eye-slash': confirmPasswordType === 'text'}"></i>
+                </span>
+              </div>
+            </div>
           </div>
           <div class="col-md-12">
             <label class="labels">Email</label>

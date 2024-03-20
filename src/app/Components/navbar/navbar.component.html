@@ -28,7 +28,7 @@
     <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Drivers</a></li>
     <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Constructors</a></li>
     <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Circuits</a></li>
-    <li class="nav-item"><a routerLinkActive="active" routerLink="/profile" class="nav-link">Profile</a></li>
+    <li class="nav-item"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]" class="nav-link">Profile</a></li>
     <li class="nav-item"><a (click)="logout()" class="nav-link">Logout</a></li>
   </ul>
 </header>

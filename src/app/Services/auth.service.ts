@@ -72,9 +72,8 @@ export class AuthService {
     this.authSubject.next(accessData)
   }
 
-  update(userId: number, userData: IUser): Observable<IResponse> {
-    return this.http.put<IResponse>(`${this.backendUrl}/user/update/${userId}`, userData)
-    .pipe(map(data => this.authSubject.next(data.response)))
+  update(userId: number, userData: IUser): Observable<IUser> {
+    return this.http.put<IUser>(`${this.backendUrl}/user/update/${userId}`, userData)
   }
 
   getUserById(userId: number): Observable<IUser> {

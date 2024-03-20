@@ -29,13 +29,20 @@ export class ProfileComponent {
   };
   myForm!: FormGroup;
   loading: boolean = false;
+  passwordType: string = 'password';
+  confirmPasswordType: string = 'password';
+
 
   ngOnInit() {
-    this.authService.getUserById(this.userData.user.id).subscribe(data => {
 
+    this.authService.user$.subscribe(res => {
+
+      if(res) this.userData = res;
+      console.log(this.userData);
 
 
     })
+
     this.myForm = this.formBuilder.group({
       name: [null, Validators.required],
       surname: [null, Validators.required],
@@ -61,42 +68,17 @@ export class ProfileComponent {
   }
 
   update() {
-    if (this.myForm.valid) {
-      this.loading = true;
-      const formValues = this.myForm.value;
-      const updatedUser: IUser = {
-        ...this.userData.user,
-        name: formValues.name,
-        surname: formValues.surname,
-        email: formValues.email
-      };
 
-      this.authService.update(this.userData.user.id, updatedUser)
-        .pipe(
-          switchMap(() => this.authService.getUserById(this.userData.user.id)),
-          tap(updatedUserData => {
-            console.log('User updated successfully:', updatedUserData);
-            this.userData = {
-              ...this.userData,
-              user: updatedUserData
-            };
-            console.log('Updated userData:', this.userData);
-            this.myForm.patchValue({
-              name: updatedUserData.name,
-              surname: updatedUserData.surname,
-              email: updatedUserData.email
-            });
-            this.router.navigate(['/homepage']);
-          }),
-          catchError(error => {
-            console.error('Error updating user:', error);
-            return of(null);
-          })
-        )
-        .subscribe(() => {
-          this.loading = false;
-        });
-    } else {
-    }
+
+
+
+  }
+
+  togglePasswordVisibility() {
+    this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+  }
+
+  toggleConfirmPasswordVisibility() {
+    this.confirmPasswordType = this.confirmPasswordType === 'password' ? 'text' : 'password';
   }
 }
