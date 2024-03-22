@@ -1,27 +1,70 @@
-.first-container{
-
-  height: 100vh;
-  background-position: center bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(../../../assets/f1-cars-3840x2160-18246.png);
-  transition: .3s ease-in-out;
-  overflow-x: hidden;
-
-  &:hover{
-
-    -ms-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-
-  }
-
-}
-
 .img-container{
 
   overflow: hidden;
 
+
+}
+
+
+.text-container{
+
+  top: 25%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+
+  h1{
+
+    font-size: 1.6rem;
+
+  }
+
+  h3{
+
+    font-size: 1.1rem;
+
+  }
+
+  @media (min-width: 375px) {
+
+    top: 30%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+
+    h1{
+
+      font-size: 1.9rem;
+
+    }
+
+    h3{
+
+      font-size: 1.1rem;
+
+    }
+
+
+  }
+
+  @media (min-width: 768px) {
+
+    top: 40%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+
+    h1{
+
+      font-size: 2.9rem;
+
+    }
+
+    h3{
+
+      font-size: 2.1rem;
+
+    }
+
+  }
 
 }
 
@@ -37,6 +80,7 @@
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
+    filter: blur(1px);
 
   }
 

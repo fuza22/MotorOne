@@ -4,10 +4,10 @@
   <a routerLink="/homepage"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span
-      class="fs-4">MotorOne</span>
+      class="fs-4 text-white d-none d-lg-inline">MotorOne</span>
   </a>
 
-  <ul class="nav nav-pills me-3">
+  <ul class="nav nav-pills me-3 mt-4">
     <li class="nav-item"><a routerLinkActive="active" routerLink="/homepage" class="nav-link"
         aria-current="page">Home</a></li>
     <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Drivers</a></li>
@@ -24,10 +24,10 @@
   <a routerLink="/homepage"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span
-      class="fs-4">MotorOne</span>
+      class="fs-3 text-white d-none d-lg-inline">MotorOne</span>
   </a>
 
-  <ul class="nav nav-pills me-3">
+  <ul class="nav nav-pills me-3 mt-4">
     <li class="nav-item"><a routerLinkActive="active" routerLink="/homepage" class="nav-link"
         aria-current="page">Home</a></li>
     <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Drivers</a></li>
@@ -56,11 +56,14 @@
         <li class="nav-item mob-nav-item"><a routerLinkActive="active" routerLink="/homepage" class="nav-link"
             aria-current="page"><i class="bi bi-house-fill nav-icon"></i><span class="off-c-text">Home</span></a></li>
         <li class="nav-item mob-nav-item"><a routerLinkActive="active" href="#" class="nav-link"><img
-              class="nav-icon my-icon" src="../../../assets/racing-helmet-icon-2048x1647-7f2fft5c.png"><span class="off-c-text">Drivers</span></a></li>
+              class="nav-icon my-icon" src="../../../assets/racing-helmet-icon-2048x1647-7f2fft5c.png"><span
+              class="off-c-text">Drivers</span></a></li>
         <li class="nav-item mob-nav-item"><a routerLinkActive="active" href="#" class="nav-link"><img
-              class="nav-icon my-icon car-icon" src="../../../assets/3538999-200.png"><span class="off-c-text">Constructors</span></a></li>
+              class="nav-icon my-icon car-icon" src="../../../assets/3538999-200.png"><span
+              class="off-c-text">Constructors</span></a></li>
         <li class="nav-item mob-nav-item"><a routerLinkActive="active" href="#" class="nav-link"><img
-              class="nav-icon my-icon track-icon" src="../../../assets/circuit-icon.png"><span class="off-c-text">Circuits</span></a></li>
+              class="nav-icon my-icon track-icon" src="../../../assets/circuit-icon.png"><span
+              class="off-c-text">Circuits</span></a></li>
       </div>
     </div>
     <a routerLink="/homepage"
@@ -77,8 +80,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <li data-bs-toggle="offcanvas" class="nav-item mob-nav-item"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]"
-            class="nav-link">Profile</a></li>
+        <li data-bs-toggle="offcanvas" class="nav-item mob-nav-item"><a routerLinkActive="active"
+            [routerLink]="['/profile/', myUser.user.id]" class="nav-link">Profile</a></li>
         <li class="nav-item mob-nav-item"><a (click)="logout()" class="nav-link">Logout</a></li>
       </div>
     </div>
