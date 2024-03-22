@@ -30,7 +30,7 @@ export class NavbarComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     var offcanvasElementList = [].slice.call(document.querySelectorAll('.offcanvas'));
-    offcanvasElementList.map(function(offcanvasEl) {
+      offcanvasElementList.map(function(offcanvasEl) {
       return new bootstrap.Offcanvas(offcanvasEl);
     });
   }

@@ -1,0 +1,45 @@
+.first-container{
+
+  height: 100vh;
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../../../assets/f1-cars-3840x2160-18246.png);
+  transition: .3s ease-in-out;
+  overflow-x: hidden;
+
+  &:hover{
+
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+  }
+
+}
+
+.img-container{
+
+  overflow: hidden;
+
+
+}
+
+
+.img{
+
+  height: auto;
+  width: 100vw;
+  transition: .3s ease-in-out;
+
+  &:hover{
+
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+  }
+
+}
+
+

@@ -31,6 +31,5 @@ export class HomepageComponent {
     this.myUser = data.user;
 
   }
-
-  }
+}
 

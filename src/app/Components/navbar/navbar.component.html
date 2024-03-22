@@ -42,10 +42,10 @@
 <!-- MOBILE -->
 
 <header *ngIf="isLoggedIn$" id="nav-mobile" data-bs-theme="dark"
-  class="d-flex d-md-none flex-wrap justify-content-center py-3 mb-4">
+  class="d-flex d-md-none flex-wrap justify-content-center py-3">
   <ul class="nav me-3">
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-      aria-controls="offcanvasTop"><i class="bi bi-list-nested nav-top-icon me-4"></i></button>
+      aria-controls="offcanvasTop"><i class="bi bi-list nav-top-icon ms-2 me-4"></i></button>
 
     <div class="offcanvas offcanvas-top h-auto" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header">
@@ -73,11 +73,11 @@
 
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop1" aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Profile/Log-out</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <li class="nav-item mob-nav-item"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]"
+        <li data-bs-toggle="offcanvas" class="nav-item mob-nav-item"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]"
             class="nav-link">Profile</a></li>
         <li class="nav-item mob-nav-item"><a (click)="logout()" class="nav-link">Logout</a></li>
       </div>
