@@ -1,6 +1,6 @@
 <div class="container">
   <form class="login-form" [formGroup]="loginForm" (ngSubmit)="logIn()" >
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal text-white">Please sign in to MotorOne!</h1>
 
     <div class="form-floating">
       <input id="username" type="username" class="form-control" formControlName="username" [ngClass]="{'is-Valid': isValid('username'), 'is-Invalid': isInvalid('username')}" placeholder="Username">
@@ -12,6 +12,7 @@
       <label >Password</label>
       <span *ngIf="loginForm.controls['password'].dirty" [ngClass]="{'valid': isValid('password'), 'invalid': isInvalid('password')}">{{msg.password}}</span>
     </div>
+    <p class="text-white mt-2">Not registered? Please <a routerLink="/auth/register">Sign up.</a></p>
     <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
   </form>
 </div>

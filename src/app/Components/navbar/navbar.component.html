@@ -39,7 +39,7 @@
   </ul>
 </header>
 
-<!-- MOBILE -->
+<!-- MOBILE LOGGED -->
 
 <header *ngIf="isLoggedIn$" id="nav-mobile" data-bs-theme="dark"
   class="d-flex d-md-none flex-wrap justify-content-center py-3">
@@ -85,6 +85,57 @@
             <i class="bi bi-person-lines-fill nav-icon"></i><p class="off-c-text">Profile</p></a></li>
         <li class="nav-item mob-nav-item"><a (click)="logout()" class="nav-link"><i
               class="bi bi-door-open-fill nav-icon"></i><p class="off-c-text">Log-Out</p></a></li>
+      </div>
+    </div>
+  </ul>
+</header>
+
+<!-- MOBILE NOT LOGGED -->
+
+<header *ngIf="!isLoggedIn$" id="nav-mobile" data-bs-theme="dark"
+  class="d-flex d-md-none flex-wrap justify-content-center py-3">
+  <ul class="nav me-3">
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+      aria-controls="offcanvasTop"><i class="bi bi-list nav-top-icon ms-2 me-4"></i></button>
+
+    <div class="offcanvas offcanvas-top h-auto" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Discover MotorOne</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex align-items-end justify-content-around">
+        <li class="nav-item mob-nav-item"><a routerLinkActive="active" routerLink="/homepage" class="nav-link"
+            aria-current="page"><i class="bi bi-house-fill nav-icon"></i><span class="off-c-text">Home</span></a></li>
+        <li class="nav-item mob-nav-item"><a routerLinkActive="active" href="#" class="nav-link"><img
+              class="nav-icon my-icon" src="../../../assets/racing-helmet-icon-2048x1647-7f2fft5c.png"><span
+              class="off-c-text">Drivers</span></a></li>
+        <li class="nav-item mob-nav-item"><a routerLinkActive="active" href="#" class="nav-link"><img
+              class="nav-icon my-icon car-icon" src="../../../assets/3538999-200.png"><span
+              class="off-c-text">Constructors</span></a></li>
+        <li class="nav-item mob-nav-item"><a routerLinkActive="active" href="#" class="nav-link"><img
+              class="nav-icon my-icon track-icon" src="../../../assets/circuit-icon.png"><span
+              class="off-c-text">Circuits</span></a></li>
+      </div>
+    </div>
+    <a routerLink="/homepage"
+      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span
+        class="fs-4 d-none">MotorOne</span>
+    </a>
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop1"
+      aria-controls="offcanvasTop"><i class="bi bi-person-circle nav-top-icon ms-4"></i></button>
+
+    <div class="offcanvas offcanvas-top h-auto" tabindex="-1" id="offcanvasTop1" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasTopLabel">Profile/Log-out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex align-items-end justify-content-around">
+        <li data-bs-toggle="offcanvas" class="nav-item mob-nav-item"><a routerLinkActive="active"
+            routerLink="/auth/login" class="nav-link">
+            <i class="bi bi-box-arrow-in-right nav-icon"></i><p class="off-c-text">Sign-in</p></a></li>
+        <li class="nav-item mob-nav-item"><a class="nav-link" routerLink="/auth/register"><i
+              class="bi bi-person-plus-fill nav-icon"></i><p class="off-c-text">Register</p></a></li>
       </div>
     </div>
   </ul>
