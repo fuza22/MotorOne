@@ -1,6 +1,6 @@
 <!-- NOT LOGGED -->
 
-<header *ngIf="!isLoggedIn$" id="nav-pc" class="d-md-flex d-none flex-wrap justify-content-center py-3 mb-4">
+<header *ngIf="!isLoggedIn$" id="nav-pc1" class="d-md-flex d-none flex-wrap justify-content-center py-3 mb-4">
   <a routerLink="/homepage"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span
@@ -8,13 +8,13 @@
   </a>
 
   <ul class="nav nav-pills me-3 mt-4">
-    <li class="nav-item"><a routerLinkActive="active" routerLink="/homepage" class="nav-link"
+    <li class="nav-item welcome-btn"><a routerLinkActive="active" routerLink="/homepage" class="nav-text"
         aria-current="page">Home</a></li>
-    <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Drivers</a></li>
-    <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Constructors</a></li>
-    <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Circuits</a></li>
-    <li class="nav-item"><a routerLinkActive="active" routerLink="/auth/login" class="nav-link">Login</a></li>
-    <li class="nav-item"><a routerLinkActive="active" routerLink="/auth/register" class="nav-link">Register</a></li>
+        <li class="nav-item welcome-btn me-2"><a routerLinkActive="active" href="#" class="nav-text">Drivers</a></li>
+        <li class="nav-item welcome-btn me-5"><a routerLinkActive="active" href="#" class="nav-text">Constructors</a></li>
+        <li class="nav-item welcome-btn ms-2 me-2"><a routerLinkActive="active" href="#" class="nav-text">Circuits</a></li>
+    <li class="nav-item welcome-btn"><a routerLinkActive="active" routerLink="/auth/login" class="nav-text">Login</a></li>
+    <li class="nav-item welcome-btn"><a routerLinkActive="active" routerLink="/auth/register" class="nav-text">Register</a></li>
   </ul>
 </header>
 
@@ -30,9 +30,9 @@
   <ul class="nav nav-pills me-3 mt-4">
     <li class="nav-item welcome-btn"><a routerLinkActive="active" routerLink="/homepage" class="nav-text"
         aria-current="page">Home</a></li>
-    <li class="nav-item welcome-btn me-2"><a routerLinkActive="active" href="#" class="nav-text text-white">Drivers</a></li>
-    <li class="nav-item welcome-btn me-5"><a routerLinkActive="active" href="#" class="nav-text text-white">Constructors</a></li>
-    <li class="nav-item welcome-btn ms-2 me-2"><a routerLinkActive="active" href="#" class="nav-text text-white">Circuits</a></li>
+    <li class="nav-item welcome-btn me-2"><a routerLinkActive="active" href="#" class="nav-text">Drivers</a></li>
+    <li class="nav-item welcome-btn me-5"><a routerLinkActive="active" href="#" class="nav-text">Constructors</a></li>
+    <li class="nav-item welcome-btn ms-2 me-2"><a routerLinkActive="active" href="#" class="nav-text">Circuits</a></li>
     <li class="nav-item welcome-btn me-2"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]"
         class="nav-text text-white">Profile</a></li>
     <li class="nav-item welcome-btn"><a (click)="logout()" class="nav-text text-white">Logout</a></li>
