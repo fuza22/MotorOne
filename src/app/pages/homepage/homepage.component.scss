@@ -84,17 +84,32 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 
+
   @media (min-width:768px) {
 
 
-    right: 380px;
+    right: 30px;
 
   }
 
   @media (min-width:1024px) {
 
 
-    right: 600px;
+    right: 550px;
+
+  }
+
+  @media (min-width:1440px) {
+
+    top: 20px;
+    left: 100px;
+
+  }
+
+  @media (min-width:2500px) {
+
+    top: 20px;
+    left: 10px;
 
   }
 
@@ -191,6 +206,13 @@
 .text-driver-container {
   bottom: 5px;
 
+  @media (min-width:1440px) {
+
+
+    top: 5px;
+
+  }
+
   .text-1 {
     font-size: 1rem;
   }
@@ -209,10 +231,31 @@
     }
 
   }
+
 }
 
 @media (min-width: 768px) {
   .btn-container {
     right: 195px;
   }
+}
+
+
+.cons-btn{
+
+  @media (min-width:320px) {
+
+
+  line-height: 1;
+
+  }
+
+  @media (min-width:768px) {
+
+
+    line-height: 1.55;
+
+    }
+
+
 }
