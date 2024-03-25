@@ -28,14 +28,14 @@
   </a>
 
   <ul class="nav nav-pills me-3 mt-4">
-    <li class="nav-item"><a routerLinkActive="active" routerLink="/homepage" class="nav-link"
+    <li class="nav-item welcome-btn"><a routerLinkActive="active" routerLink="/homepage" class="nav-text"
         aria-current="page">Home</a></li>
-    <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Drivers</a></li>
-    <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Constructors</a></li>
-    <li class="nav-item"><a routerLinkActive="active" href="#" class="nav-link">Circuits</a></li>
-    <li class="nav-item"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]"
-        class="nav-link">Profile</a></li>
-    <li class="nav-item"><a (click)="logout()" class="nav-link">Logout</a></li>
+    <li class="nav-item welcome-btn me-2"><a routerLinkActive="active" href="#" class="nav-text text-white">Drivers</a></li>
+    <li class="nav-item welcome-btn me-5"><a routerLinkActive="active" href="#" class="nav-text text-white">Constructors</a></li>
+    <li class="nav-item welcome-btn ms-2 me-2"><a routerLinkActive="active" href="#" class="nav-text text-white">Circuits</a></li>
+    <li class="nav-item welcome-btn me-2"><a routerLinkActive="active" [routerLink]="['/profile/', myUser.user.id]"
+        class="nav-text text-white">Profile</a></li>
+    <li class="nav-item welcome-btn"><a (click)="logout()" class="nav-text text-white">Logout</a></li>
   </ul>
 </header>
 
@@ -74,15 +74,17 @@
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop1"
       aria-controls="offcanvasTop"><i class="bi bi-person-circle nav-top-icon ms-4"></i></button>
 
-    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop1" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas offcanvas-top h-auto" tabindex="-1" id="offcanvasTop1" aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasTopLabel">Profile/Log-out</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body d-flex align-items-end justify-content-around">
         <li data-bs-toggle="offcanvas" class="nav-item mob-nav-item"><a routerLinkActive="active"
-            [routerLink]="['/profile/', myUser.user.id]" class="nav-link">Profile</a></li>
-        <li class="nav-item mob-nav-item"><a (click)="logout()" class="nav-link">Logout</a></li>
+            [routerLink]="['/profile/', myUser.user.id]" class="nav-link">
+            <i class="bi bi-person-lines-fill nav-icon"></i><p class="off-c-text">Profile</p></a></li>
+        <li class="nav-item mob-nav-item"><a (click)="logout()" class="nav-link"><i
+              class="bi bi-door-open-fill nav-icon"></i><p class="off-c-text">Log-Out</p></a></li>
       </div>
     </div>
   </ul>
