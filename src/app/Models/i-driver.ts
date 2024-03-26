@@ -1,4 +1,5 @@
 export interface IDriver {
+  [x: string]: any;
 
   id: number;
   permanentNumber: number;

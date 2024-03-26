@@ -6,7 +6,8 @@ const routes: Routes = [
 { path: '', component: WelcomeComponent},
 { path: 'homepage', loadChildren: () => import('./Pages/homepage/homepage.module').then(m => m.HomepageModule) },
 { path: 'auth', loadChildren: () => import('./Pages/auth/auth.module').then(m => m.AuthModule) },
-{ path: 'profile/:id', loadChildren: () => import('./Pages/profile/profile.module').then(m => m.ProfileModule) }];
+{ path: 'profile/:id', loadChildren: () => import('./Pages/profile/profile.module').then(m => m.ProfileModule) },
+{ path: 'drivers', loadChildren: () => import('./Pages/drivers/drivers.module').then(m => m.DriversModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

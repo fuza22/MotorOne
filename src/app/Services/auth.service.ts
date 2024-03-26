@@ -8,7 +8,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { ILoginData } from '../Models/auth/i-login-data';
 import { IUser } from '../Models/auth/i-user';
-import { IResponse } from '../Models/auth/i-response';
 
 @Injectable({
   providedIn: 'root'

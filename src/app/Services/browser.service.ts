@@ -10,7 +10,6 @@ export class BrowserService {
   constructor(private platformLocation: PlatformLocation) {}
 
   isBrowser(): boolean {
-    // Verifica se il codice è in esecuzione lato client
     return this.platformLocation instanceof BrowserPlatformLocation;
   }
 
