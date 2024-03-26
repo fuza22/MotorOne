@@ -12,12 +12,11 @@ export class ApiF1Service {
 
   f1Url: string = `${environment.apiUrl}`
 
-
   constructor(private http:HttpClient, private router:Router) { }
 
-  getAllDrivers(): Observable<IDriver>{
+  getAllDrivers(): Observable<IDriver[]>{
 
-    return this.http.get<IDriver>(`${this.f1Url}/drivers.json`);
+    return this.http.get<IDriver[]>(`${this.f1Url}/drivers`);
 
   }
 

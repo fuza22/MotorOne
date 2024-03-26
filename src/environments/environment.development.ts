@@ -1,6 +1,6 @@
 export const environment = {
 
   backendUrl: 'http://localhost:8080',
-  apiUrl:'http://ergast.com/api/f1'
+  apiUrl:'https://api.openf1.org/v1'
 
 };

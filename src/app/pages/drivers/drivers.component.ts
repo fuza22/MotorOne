@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   templateUrl: './drivers.component.html',
   styleUrl: './drivers.component.scss'
 })
-export class DriversComponent implements OnInit {
-  drivers!: Observable<IDriver[]>;
+export class DriversComponent{
+  drivers!: IDriver[];
 
   constructor(private apiF1: ApiF1Service) { }
 
@@ -19,10 +19,7 @@ export class DriversComponent implements OnInit {
 
   loadDrivers(): void {
     this.apiF1.getAllDrivers().subscribe((res) => {
-
-      console.log(res);
-
-
+      this.drivers = res;
     });
   }
 }

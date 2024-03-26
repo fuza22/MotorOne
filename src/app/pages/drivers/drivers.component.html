@@ -1,1 +1,6 @@
-<p class="mt-5 text-white">drivers works!</p>
+<div *ngFor="let d of drivers">
+
+  <p class="text-white">{{d.broadcast_name}}</p>
+  <img [src]="d.headshot_url">
+
+</div>
