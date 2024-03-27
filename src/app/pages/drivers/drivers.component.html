@@ -1,13 +1,13 @@
 <div class="row w-100 driver-container">
   <div class="col-12 col-md-2" *ngFor="let d of drivers">
-    <div class="card-container row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="ms-3 card-container row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 driver-text">Driver</strong>
+        <strong class="d-inline-block mb-1 driver-text">Driver</strong>
         <h3 class="mb-0 text-white driver-name">{{d.first_name}}</h3>
-        <h3 class="mb-0 text-white driver-name fw-bold text-uppercase">{{d.last_name}}</h3>
+        <h3 class="mb-0 text-white driver-name fw-bold text-uppercase surname fs-5">{{d.last_name}}</h3>
         <div class="mb-1 text-white">{{d.team_name}}</div>
         <p class="card-text mb-auto text-white">{{d.name_acronym}}</p>
-        <a class="driver-text" routerLink=""><span class="me-1">See driver details</span><i class="freccia-icon bi bi-chevron-right"></i></a>
+        <a class="driver-text" routerLink=""><span class="me-1">See driver details</span></a>
       </div>
       <div class="col-auto d-lg-block">
         <img class="driver-img" [src]="d.headshot_url" alt="driver-img">
