@@ -1,1 +1,21 @@
-<p class="text-white">{{driver[0].broadcast_name}}</p>
+<section class=" detail-container">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-2 img-fluid"><img class="card-img-top mb-5 mb-md-0" [src]="[driver[0].headshot_url]"
+          alt="driver-img">
+      </div>
+      <div class="col-md-6">
+        <div class="small mb-1 text-white">Driver</div>
+        <h1 class="display-5 fw-bolder text-white">{{driver[0].full_name}}</h1>
+        <div class="fs-5 mb-5">
+          <span class="text-white">{{driver[0].name_acronym}}</span>
+        </div>
+        <ul class="text-white">
+          <li><span class="head-text">Number:</span> {{driver[0].driver_number}}</li>
+          <li><span class="head-text">Team:</span> {{driver[0].team_name}}</li>
+          <li><span class="head-text">Nationality:</span> {{driver[0].country_code}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
