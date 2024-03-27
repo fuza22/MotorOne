@@ -1,6 +1,6 @@
 <!-- NOT LOGGED -->
 
-<header *ngIf="!isLoggedIn$" id="nav-pc1" class="d-md-flex d-none flex-wrap justify-content-center py-3 mb-4">
+<header *ngIf="!isLoggedIn$" id="nav-pc1" [ngClass]="{'navbar-inverse': isScrolled}" class="d-md-flex d-none flex-wrap justify-content-center py-3 mb-4">
   <a routerLink="/homepage"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span
@@ -20,7 +20,7 @@
 
 <!-- LOGGED -->
 
-<header *ngIf="isLoggedIn$" id="nav-pc1" class="d-md-flex d-none flex-wrap justify-content-center py-3 mb-4">
+<header *ngIf="isLoggedIn$" id="nav-pc1" class="d-md-flex d-none flex-wrap justify-content-center py-3 mb-4" [ngClass]="{'navbar-inverse': isScrolled}">
   <a routerLink="/homepage"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
     <img class="ms-3 me-3 navLogo" src="../../../assets/logo-motorOne.png" alt="logo-motorOne"><span
