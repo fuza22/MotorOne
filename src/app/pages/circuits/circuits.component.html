@@ -1,1 +1,17 @@
-<p>circuits works!</p>
+<div class="row w-100 driver-container">
+  <h2 class="text-white ms-4 mb-4">Explore all F1 Circuits</h2>
+  <div class="col-12 col-md-2" *ngFor="let c of circuits">
+    <div class="ms-3 card-container row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-1 driver-text">Circuit</strong>
+        <h3 class="mb-0 text-white driver-name">{{c.meeting_official_name}}</h3>
+        <h3 class="mb-0 text-white driver-name fw-bold text-uppercase surname fs-5">{{c.country_code}}</h3>
+        <p class="card-text mb-auto text-white">{{c.location}}</p>
+        <a class="driver-text" [routerLink]="['/circuits/details', c.circuit_key]"><span class="me-1">See circuit details</span></a>
+      </div>
+      <div class="col-auto d-lg-block">
+        <img class="driver-img" [src]="" alt="driver-img">
+      </div>
+    </div>
+  </div>
+</div>

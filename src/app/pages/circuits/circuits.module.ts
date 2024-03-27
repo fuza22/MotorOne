@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CircuitsRoutingModule } from './circuits-routing.module';
 import { CircuitsComponent } from './circuits.component';
+import { CircuitsDetailsComponent } from './circuits-details/circuits-details.component';
 
 
 @NgModule({
   declarations: [
-    CircuitsComponent
+    CircuitsComponent,
+    CircuitsDetailsComponent
   ],
   imports: [
     CommonModule,
