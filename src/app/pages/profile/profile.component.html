@@ -5,12 +5,12 @@
       <div class="d-flex flex-column align-items-center text-center">
         <img class="rounded-circle mt-5" width="150px"
           src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-        <span class="font-weight-bold text-white mt-3">Benvenuto, {{this.userData.user.name}}</span>
+        <span class="font-weight-bold text-white mt-3">Welcome, {{this.userData.user.name}}</span>
         <span class="text-black-50"></span>
         <span> </span>
       </div>
       <div class="mt-5 text-center">
-        <button class="btn btn-primary profile-button" type="button">Carica un'immagine profilo</button>
+        <button class="btn btn-primary welcome-btn" type="button">Upload image</button>
       </div>
     </div>
 
@@ -18,23 +18,23 @@
     <div class="col-md-5 border-right">
       <div class="p-3 py-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 class="text-right">Profile Settings</h4>
+          <h4 class="text-right text-white">Profile Settings</h4>
         </div>
         <div class="row mt-2">
           <div class="col-md-6">
-            <label class="labels">Name</label>
-            <input formControlName="name" type="text" class="form-control" placeholder="First name">
+            <label class="form__label">Name</label>
+            <input formControlName="name" type="text" class="form-control form__field" placeholder="First name">
           </div>
           <div class="col-md-6">
-            <label class="labels">Surname</label>
-            <input formControlName="surname" type="text" class="form-control" placeholder="Surname">
+            <label class="form__label">Surname</label>
+            <input formControlName="surname" type="text" class="form-control form__field" placeholder="Surname">
           </div>
         </div>
         <div class="row mt-3">
           <div class="col-md-12">
             <label class="labels">Password</label>
             <div class="input-group">
-              <input formControlName="password" [type]="passwordType" class="form-control" placeholder="Enter your password">
+              <input formControlName="password" [type]="passwordType" class="form-control form__field" placeholder="Enter your password">
               <div class="input-group-append">
                 <span class="input-group-text" (click)="togglePasswordVisibility()">
                   <i class="bi bi-eye-fill" [ngClass]="{'bi-eye': passwordType === 'password', 'bi-eye-fill': passwordType === 'text'}"></i>
@@ -45,21 +45,21 @@
           <div class="col-md-12">
             <label class="labels">Confirm Password</label>
             <div class="input-group">
-              <input formControlName="confirmPassword" [type]="confirmPasswordType" class="form-control" placeholder="Confirm password">
+              <input formControlName="confirmPassword" [type]="confirmPasswordType" class="form-control form__field" placeholder="Confirm password">
               <div class="input-group-append">
                 <span class="input-group-text" (click)="toggleConfirmPasswordVisibility()">
-                  <i class="bi" [ngClass]="{'bi-eye': confirmPasswordType === 'password', 'bi-eye-slash': confirmPasswordType === 'text'}"></i>
+                  <i class="bi" [ngClass]="{'bi-eye': confirmPasswordType === 'password', 'bi-eye-fill': confirmPasswordType === 'text'}"></i>
                 </span>
               </div>
             </div>
           </div>
           <div class="col-md-12">
             <label class="labels">Email</label>
-            <input formControlName="email" type="text" class="form-control" placeholder="Enter your email">
+            <input formControlName="email" type="text" class="form-control form__field" placeholder="Enter your email">
           </div>
         </div>
         <div class="mt-5 text-center">
-          <button class="btn btn-primary profile-button" type="submit">Update Profile</button>
+          <button class="btn btn-primary welcome-btn" type="submit">Update Profile</button>
         </div>
       </div>
     </div>

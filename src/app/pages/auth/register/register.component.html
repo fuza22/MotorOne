@@ -66,9 +66,9 @@
     </form>
   </div>
   <div *ngIf="registered">
-    <h2 class="fw-bold mb-5">Ciao {{this.registerForm.value['name']}}. La registrazione è avvenuta con successo!</h2>
-    <a type="submit" routerLink="../../auth/login" class="btn btn-primary btn-block btn-login">
-      Vai al Login
+    <h2 class="fw-bold mb-5">Hi {{this.registerForm.value['name']}}. Registration done.</h2>
+    <a type="submit" routerLink="../../auth/login" class="btn btn-primary welcome-btn btn-block btn-login">
+      Go to login page!
     </a>
   </div>
 </div>
