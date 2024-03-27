@@ -7,7 +7,7 @@
         <h3 class="mb-0 text-white driver-name fw-bold text-uppercase surname fs-5">{{d.last_name}}</h3>
         <div class="mb-1 text-white">{{d.team_name}}</div>
         <p class="card-text mb-auto text-white">{{d.name_acronym}}</p>
-        <a class="driver-text" routerLink=""><span class="me-1">See driver details</span></a>
+        <a class="driver-text" [routerLink]="['/drivers/details', d.driver_number]"><span class="me-1">See driver details</span></a>
       </div>
       <div class="col-auto d-lg-block">
         <img class="driver-img" [src]="d.headshot_url" alt="driver-img">

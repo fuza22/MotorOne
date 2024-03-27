@@ -20,5 +20,10 @@ export class ApiF1Service {
 
   }
 
+  getById(id: number): Observable<IDriver[]>{
+
+    return this.http.get<IDriver[]>(`${this.f1Url}/drivers?driver_number=${id}`);
+
+  }
 
 }

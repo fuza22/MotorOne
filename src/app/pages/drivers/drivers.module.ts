@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { DriversRoutingModule } from './drivers-routing.module';
 import { DriversComponent } from './drivers.component';
+import { DriverDetailComponent } from './driver-detail/driver-detail.component';
 
 
 @NgModule({
   declarations: [
-    DriversComponent
+    DriversComponent,
+    DriverDetailComponent
   ],
   imports: [
     CommonModule,
