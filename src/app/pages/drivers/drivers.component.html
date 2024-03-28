@@ -1,6 +1,6 @@
 <div class="row w-100 driver-container">
   <h2 class="text-white ms-4 mb-4">Explore all F1 Drivers</h2>
-  <div class="col-12 col-md-2" *ngFor="let d of drivers">
+  <div class="col-12 col-md-2" *ngFor="let d of paginate(drivers, currentPage, itemsPerPage)">
     <div class="ms-3 card-container row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col p-4 d-flex flex-column position-static">
         <strong class="d-inline-block mb-1 driver-text">Driver</strong>
@@ -16,3 +16,12 @@
     </div>
   </div>
 </div>
+
+<div class="pagination">
+  <button class="page-link" (click)="currentPage = 1" [disabled]="currentPage === 1">&laquo;</button>
+  <button class="page-link" (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">&lt;</button>
+  <button *ngFor="let page of pagesArray(maxPages(drivers, itemsPerPage))" class="page-link" (click)="currentPage = page">{{ page }}</button>
+  <button class="page-link" (click)="currentPage = currentPage + 1" [disabled]="currentPage === maxPages(drivers, itemsPerPage)">&gt;</button>
+  <button class="page-link" (click)="currentPage = maxPages(drivers, itemsPerPage)" [disabled]="currentPage === maxPages(drivers, itemsPerPage)">&raquo;</button>
+</div>
+

@@ -1,10 +1,9 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAuthData } from '../../Models/auth/i-auth-data';
-import { AuthService } from './../../Services/auth.service';
 import { Component } from '@angular/core';
-import { IUser } from '../../Models/auth/i-user';
-import { Router } from '@angular/router';
-import { catchError, of, switchMap, tap } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './../../Services/auth.service';
+import { ApiBeService } from './../../Services/api-be.service';
+import { IAuthData } from '../../Models/auth/i-auth-data';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,8 +11,6 @@ import { catchError, of, switchMap, tap } from 'rxjs';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router:Router) { }
 
   userData: IAuthData = {
     accessToken: '',
@@ -24,25 +21,31 @@ export class ProfileComponent {
       confirmPassword: '',
       email: '',
       username: '',
+      avatar:'',
       id: 0
     }
   };
   myForm!: FormGroup;
   loading: boolean = false;
+  file!: File;
+  id!: string | null;
+  profileImageUrl: string = '';
   passwordType: string = 'password';
   confirmPasswordType: string = 'password';
 
+  constructor(
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private beSvc: ApiBeService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
 
-    this.authService.user$.subscribe(res => {
-
-      if(res) this.userData = res;
-      console.log(this.userData);
-
+      this.id = params.get('id');
 
     })
-
     this.myForm = this.formBuilder.group({
       name: [null, Validators.required],
       surname: [null, Validators.required],
@@ -55,22 +58,22 @@ export class ProfileComponent {
       if (res) {
         this.userData = res;
         this.patchFormValues();
+        console.log(res);
       }
     });
   }
 
   patchFormValues() {
-    this.myForm.patchValue({
-      name: this.userData.user.name,
-      surname: this.userData.user.surname,
-      email: this.userData.user.email
-    });
+    if (this.myForm) {
+      this.myForm.patchValue({
+        name: this.userData.user.name,
+        surname: this.userData.user.surname,
+        email: this.userData.user.email
+      });
+    }
   }
 
   update() {
-
-
-
 
   }
 
@@ -80,5 +83,28 @@ export class ProfileComponent {
 
   toggleConfirmPasswordVisibility() {
     this.confirmPasswordType = this.confirmPasswordType === 'password' ? 'text' : 'password';
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      this.file = input.files[0];
+    }
+  }
+
+  imageUpload() {
+    if (this.file) {
+      this.beSvc.imageUpload(Number(this.id), this.file).subscribe(
+        response => {
+          // Handle success response
+          console.log('Image uploaded successfully', response);
+          // You can optionally update any UI elements here
+        },
+        error => {
+          // Handle error response
+          console.error('Error uploading image', error);
+        }
+      );
+    }
   }
 }

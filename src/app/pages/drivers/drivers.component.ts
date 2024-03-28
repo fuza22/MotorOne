@@ -8,8 +8,10 @@ import { Observable } from 'rxjs';
   templateUrl: './drivers.component.html',
   styleUrl: './drivers.component.scss'
 })
-export class DriversComponent{
-  drivers!: IDriver[];
+export class DriversComponent implements OnInit {
+  drivers: IDriver[] = [];
+  currentPage = 1;
+  itemsPerPage = 12;
 
   constructor(private apiF1: ApiF1Service) { }
 
@@ -23,5 +25,17 @@ export class DriversComponent{
     });
   }
 
+  paginate(drivers: IDriver[], page: number, itemsPerPage: number): IDriver[] {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return drivers.slice(startIndex, endIndex);
+  }
 
+  maxPages(drivers: IDriver[], itemsPerPage: number): number {
+    return Math.ceil(drivers.length / itemsPerPage);
+  }
+
+  pagesArray(pages: number): number[] {
+    return new Array(pages).fill(0).map((_, index) => index + 1);
+  }
 }
