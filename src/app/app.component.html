@@ -1,16 +1,5 @@
-<div *ngIf="hide" class="app-navbar"></div>
+<div class="app-navbar" *ngIf="!router.url.endsWith('welcome')"></div>
 
-<app-welcome class="welcome-container d-flex justify-content-center" *ngIf="!hide">
-  <div class="text-center">
-    <div class="mb-3">
-      <img class="logo-welcome" src="../assets/logo-motorOne.png" alt="logo-motorOne">
-    </div>
-    <div>
-      <a class="welcome-btn btn btn-danger button-49" routerLink="/homepage" (click)="hide = !hide">Explore MotorOne!</a>
-    </div>
-  </div>
-</app-welcome>
+<router-outlet></router-outlet>
 
-<router-outlet *ngIf="hide"></router-outlet>
-
-<div *ngIf="hide" class="app-footer"></div>
+<div class="app-footer" *ngIf="!router.url.endsWith('welcome')"></div>
