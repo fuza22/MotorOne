@@ -9,13 +9,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomeComponent } from './Pages/homepage/welcome/welcome.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { myInterceptor } from './interceptors/my-interceptor.interceptor';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
