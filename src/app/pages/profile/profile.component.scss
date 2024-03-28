@@ -149,6 +149,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  cursor: pointer;
 
 }
 
@@ -245,3 +246,24 @@ i{
 
   margin-top: 15px;
 }
+
+input::file-selector-button {
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  padding: 0.5em;
+  width: 150px;
+  margin-left: 80px;
+  border: thin solid grey;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s linear;
+
+  &:hover{
+
+    background-color: rgba(255, 255, 255, 0.141);
+
+  }
+
+}
+

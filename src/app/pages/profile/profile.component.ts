@@ -4,6 +4,7 @@ import { AuthService } from './../../Services/auth.service';
 import { ApiBeService } from './../../Services/api-be.service';
 import { IAuthData } from '../../Models/auth/i-auth-data';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent {
       email: '',
       username: '',
       avatar:'',
+      role:'',
       id: 0
     }
   };
@@ -75,6 +77,8 @@ export class ProfileComponent {
 
   update() {
 
+
+
   }
 
   togglePasswordVisibility() {
@@ -96,15 +100,24 @@ export class ProfileComponent {
     if (this.file) {
       this.beSvc.imageUpload(Number(this.id), this.file).subscribe(
         response => {
-          // Handle success response
           console.log('Image uploaded successfully', response);
-          // You can optionally update any UI elements here
         },
         error => {
-          // Handle error response
           console.error('Error uploading image', error);
         }
       );
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Choose an image before uploading.",
+        icon: "warning",
+        color:"white",
+        background: "#252525",
+        confirmButtonColor: "#FF003B"
+      });
     }
   }
+
+
+
 }
