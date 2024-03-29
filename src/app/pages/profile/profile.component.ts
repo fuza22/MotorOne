@@ -34,6 +34,7 @@ export class ProfileComponent {
   profileImageUrl: string = '';
   passwordType: string = 'password';
   confirmPasswordType: string = 'password';
+  changePsw!: FormGroup;
 
   constructor(
     private authService: AuthService,
@@ -118,6 +119,6 @@ export class ProfileComponent {
     }
   }
 
-
+updatePsw(){}
 
 }
