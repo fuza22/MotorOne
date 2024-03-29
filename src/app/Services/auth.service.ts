@@ -79,4 +79,16 @@ export class AuthService {
     return this.http.get<IUser>(`${this.backendUrl}/user/search/${userId}`);
   }
 
+  updateUser(userData:IAuthData):Observable<IAuthData> {
+
+    return this.http.patch<IAuthData>(`${environment.backendUrl}/user/update/${userData.user.id}`, userData.user)
+    .pipe(tap(() => {
+
+      this.authSubject.next(userData)
+      localStorage.setItem('user', JSON.stringify(userData));
+
+    }));
+
+  }
+
 }

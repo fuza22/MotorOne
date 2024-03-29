@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../Services/auth.service';
 import { ApiBeService } from './../../Services/api-be.service';
 import { IAuthData } from '../../Models/auth/i-auth-data';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { catchError } from 'rxjs';
 
@@ -42,7 +42,8 @@ export class ProfileComponent {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private beSvc: ApiBeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -87,7 +88,12 @@ export class ProfileComponent {
 
   update() {
 
+    this.userData.user.name = this.myForm.value.name;
+    this.userData.user.surname = this.myForm.value.surname;
+    this.userData.user.email = this.myForm.value.email;
 
+    this.authService.updateUser(this.userData)
+    .subscribe(() => this.router.navigate(['/homepage']));
 
   }
 
@@ -114,6 +120,14 @@ export class ProfileComponent {
     if (this.file) {
       this.beSvc.imageUpload(Number(this.id), this.file).subscribe(
         response => {
+          Swal.fire({
+            title: "Congrats!",
+            text: "Image uploaded successfully.",
+            icon: "success",
+            color:"white",
+            background: "#252525",
+            confirmButtonColor: "#FF003B"
+          });
           console.log('Image uploaded successfully', response);
         },
         error => {
