@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { IPassword } from '../Models/auth/i-password';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,11 @@ export class ApiBeService {
     formData.append('upload', file);
     return this.http.patch<any>(`${environment.backendUrl}/user/${userId}/upload`, formData)
 
+  }
+
+  updatePassword(userId: number, password: IPassword): Observable<IPassword> {
+    const updatePasswordUrl = `${environment.backendUrl}/user/edit/password/${userId}`;
+    return this.http.patch<IPassword>(updatePasswordUrl, password);
   }
 
 }

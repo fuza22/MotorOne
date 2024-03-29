@@ -49,9 +49,22 @@
   <form [formGroup]="changePsw" (ngSubmit)="updatePsw()" class="psw-container">
     <div class="row mt-3 justify-content-center">
       <div class="col-md-7 col-11">
+        <label class="labels">Old Password</label>
+        <div class="input-group">
+          <input formControlName="oldPassword" [type]="oldPasswordType" class="form-control form__field"
+            placeholder="Enter your old password">
+          <div class="input-group-append">
+            <span class="input-group-text" (click)="toggleOldPasswordVisibility()">
+              <i class="bi bi-eye-fill"
+                [ngClass]="{'bi-eye': oldPasswordType === 'password', 'bi-eye-fill': oldPasswordType === 'text'}"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-11">
         <label class="labels">Password</label>
         <div class="input-group">
-          <input formControlName="password" [type]="passwordType" class="form-control form__field"
+          <input formControlName="newPassword" [type]="passwordType" class="form-control form__field"
             placeholder="Enter your password">
           <div class="input-group-append">
             <span class="input-group-text" (click)="togglePasswordVisibility()">

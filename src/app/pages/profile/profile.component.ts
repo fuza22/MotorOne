@@ -5,6 +5,7 @@ import { ApiBeService } from './../../Services/api-be.service';
 import { IAuthData } from '../../Models/auth/i-auth-data';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -32,6 +33,7 @@ export class ProfileComponent {
   file!: File;
   id!: string | null;
   profileImageUrl: string = '';
+  oldPasswordType: string = 'password';
   passwordType: string = 'password';
   confirmPasswordType: string = 'password';
   changePsw!: FormGroup;
@@ -64,6 +66,13 @@ export class ProfileComponent {
         console.log(res);
       }
     });
+
+    this.changePsw = this.formBuilder.group({
+      oldPassword: [null, Validators.required],
+      newPassword: [null, Validators.required],
+      confirmPassword: [null, Validators.required]
+    });
+
   }
 
   patchFormValues() {
@@ -80,6 +89,10 @@ export class ProfileComponent {
 
 
 
+  }
+
+  toggleOldPasswordVisibility() {
+    this.oldPasswordType = this.oldPasswordType === 'password' ? 'text' : 'password';
   }
 
   togglePasswordVisibility() {
@@ -119,6 +132,54 @@ export class ProfileComponent {
     }
   }
 
-updatePsw(){}
+  updatePsw() {
+    if (this.changePsw.invalid) {
+      this.changePsw.markAllAsTouched();
+      return;
+    }
 
+    const passwords = this.changePsw.value;
+    const userId = this.userData.user.id;
+    console.log(passwords);
+    if (passwords.newPassword !== passwords.confirmPassword) {
+      Swal.fire({
+        title: "Error!",
+        text: "Passwords do not match.",
+        icon: "error",
+        color: "white",
+        background: "#252525",
+        confirmButtonColor: "#FF003B"
+      });
+      return;
+    }
+
+    delete passwords.confirmPassword;
+
+    this.beSvc.updatePassword(userId, passwords).pipe(catchError(error => {
+      console.error('Error updating password', error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to update password. Please try again later.",
+          icon: "error",
+          color: "white",
+          background: "#252525",
+          confirmButtonColor: "#FF003B"
+        });
+      throw error;
+    }))
+    .subscribe(
+      (response: any) => {
+        console.log('Password updated successfully', response);
+        Swal.fire({
+          title: "Success!",
+          text: "Password updated successfully.",
+          icon: "success",
+          color: "white",
+          background: "#252525",
+          confirmButtonColor: "#FF003B"
+        });
+        this.changePsw.reset();
+      }
+    );
+  }
 }
